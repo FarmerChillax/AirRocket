@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package rocket_server;
+
+option go_package = "./rocket_server";
+
+service AirRocketServer {
+    rpc GenerateAccessCode (EntryMessage) returns (AccessCode);
+    rpc GetDetail (AccessCode) returns (EntryMessage);
+    // rpc HeartBeat () returns ();
+}
+
+message HashCode {
+    string md5 = 1;
+    string sha1 = 2;
+    string sha256 = 3;
+}
+
+message EntryMessage {
+    string filename = 1;
+    HashCode hash = 2;
+    int64 size = 3;
+    string URI = 4;
+}
+
+message AccessCode{
+    string Value = 1;
+}
