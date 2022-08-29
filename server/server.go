@@ -27,7 +27,7 @@ func (ars *AirRocketServer) GenerateAccessCode(ctx context.Context,
 
 	accessCode := pkg.GenerateAccessCode()
 	entryCache := NewEntryCache()
-	err := entryCache.Set(accessCode, in)
+	err := entryCache.Set(accessCode, in, 10)
 	if err != nil {
 		return nil, status.Errorf(codes.NotFound, "generate access code err: %v", err)
 	}
