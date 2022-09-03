@@ -36,5 +36,10 @@ func (ars *AirRocketServer) GenerateAccessCode(ctx context.Context,
 }
 
 func (ars *AirRocketServer) GetDetail(ctx context.Context, in *rocket_server.AccessCode) (*rocket_server.EntryMessage, error) {
-	panic("not implemented") // TODO: Implement
+	accessCode := in.GetValue()
+	entryMessage, err := entryCache.Get(accessCode)
+	if err != nil {
+		return nil, status.Errorf(codes.InvalidArgument, "entryCache.Get err: %v", err)
+	}
+	return entryMessage, nil
 }

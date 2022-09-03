@@ -28,6 +28,7 @@ var (
 var (
 	ErrAccessCodeRepeated error = errors.New("access code repeated")
 	ErrNotFound           error = errors.New("access code not found")
+	ErrExpired            error = errors.New("access code expired")
 )
 
 func NewEntryCache() *EntryCache {
@@ -69,11 +70,11 @@ func (ec *EntryCache) Get(accessCode string) (*rocket_server.EntryMessage, error
 	defer ec.mutex.RUnlock()
 	entry, ok := ec.entries[accessCode]
 	if !ok {
-		return nil, nil
+		return nil, ErrNotFound
 	}
 	if entry.createTime+entry.expired < time.Now().Unix() {
 		delete(ec.entries, accessCode)
-		return nil, nil
+		return nil, ErrExpired
 	}
 	return entry.payload, nil
 }
