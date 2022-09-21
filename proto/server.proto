@@ -26,3 +26,4 @@ message EntryMessage {
 message AccessCode{
     string Value = 1;
 }
+

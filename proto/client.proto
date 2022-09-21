@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package rocket_client;
+
+option go_package = "./rocket_client";
+
+
+service AirRocketClient {
+    rpc Transfer (TransferRequest) returns (stream TransferResponse);
+}
+
+message TransferRequest {
+    string URI = 1;
+}
+
+message TransferResponse {
+    bytes data = 1;
+}
