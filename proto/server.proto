@@ -26,16 +26,3 @@ message EntryMessage {
 message AccessCode{
     string Value = 1;
 }
-
-
-service AirRocketClient {
-    rpc TransferData (TransferRequest) returns (stream TransferResponse);
-}
-
-message TransferRequest {
-
-}
-
-message TransferResponse {
-
-}
