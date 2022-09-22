@@ -21,6 +21,7 @@ message EntryMessage {
     HashCode hash = 2;
     int64 size = 3;
     string URI = 4;
+    string endpoint = 5;
 }
 
 message AccessCode{
