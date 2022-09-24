@@ -2,6 +2,7 @@ package client
 
 import (
 	"context"
+	"io"
 	"log"
 	"os"
 
@@ -29,6 +30,10 @@ func GetFile(ctx context.Context, address, URI string) error {
 
 		tr, err := arc.Recv()
 		if err != nil {
+			if err == io.EOF {
+				log.Println("传输完成")
+				break
+			}
 			return err
 		}
 		f, err := os.OpenFile(`F:\Everything.mkv`, os.O_CREATE|os.O_APPEND|os.O_WRONLY, os.ModePerm)
@@ -42,5 +47,5 @@ func GetFile(ctx context.Context, address, URI string) error {
 		log.Println("写入文件大小:", n)
 
 	}
-
+	return nil
 }
