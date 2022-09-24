@@ -18,6 +18,7 @@ func main() {
 	}
 
 	s := grpc.NewServer()
+
 	rocket_client.RegisterAirRocketClientServer(s, server.NewAirRocketClient())
 
 	log.Printf("Starting AirRocket client service on port: %v\n", ADDRESS)

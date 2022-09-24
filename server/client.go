@@ -31,11 +31,13 @@ func (arc *AirRocketClient) Transfer(in *rocket_client.TransferRequest, out rock
 		return fmt.Errorf("打开文件出错")
 	}
 	defer f.Close()
-	fileBuffer := make([]byte, 2048)
+	fileBuffer := make([]byte, 4194000)
+	// pr, pw := io.Pipe()
 	// loop
 	for {
+		// fileBuffer = fileBuffer[:0]
 		// 读取文件到buffer
-		_, err := f.Read(fileBuffer)
+		n, err := f.Read(fileBuffer)
 		if err != nil {
 			if errors.Is(err, io.EOF) {
 				log.Println("文件已加载完")
@@ -45,11 +47,11 @@ func (arc *AirRocketClient) Transfer(in *rocket_client.TransferRequest, out rock
 		}
 		// 发送文件
 		if err := out.Send(&rocket_client.TransferResponse{
-			Data: fileBuffer,
+			Data: fileBuffer[:n],
 		}); err != nil {
-			log.Fatal("发送出错")
+			log.Printf("发送出错, %v", err)
+			break
 		}
-		// 清空buffer
-		fileBuffer = fileBuffer[:0]
 	}
+	return nil
 }
