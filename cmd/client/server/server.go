@@ -4,8 +4,8 @@ import (
 	"log"
 	"net"
 
+	"github.com/FarmerChillax/AirRocket/client"
 	"github.com/FarmerChillax/AirRocket/proto/rocket_client"
-	"github.com/FarmerChillax/AirRocket/server"
 	"google.golang.org/grpc"
 )
 
@@ -19,7 +19,7 @@ func main() {
 
 	s := grpc.NewServer()
 
-	rocket_client.RegisterAirRocketClientServer(s, server.NewAirRocketClient())
+	rocket_client.RegisterAirRocketClientServer(s, client.NewAirRocketService())
 
 	log.Printf("Starting AirRocket client service on port: %v\n", ADDRESS)
 	if err = s.Serve(lis); err != nil {
