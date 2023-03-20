@@ -15,7 +15,7 @@ import (
 // 	"os"
 
 // 	"github.com/FarmerChillax/AirRocket/pkg"
-// 	"github.com/FarmerChillax/AirRocket/proto/rocket_client"
+// 	"github.com/FarmerChillax/AirRocket/api/rocket_client"
 // )
 
 type Client struct {

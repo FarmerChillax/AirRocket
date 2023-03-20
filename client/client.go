@@ -6,7 +6,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/FarmerChillax/AirRocket/proto/rocket_client"
+	"github.com/FarmerChillax/AirRocket/api/rocket_client"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )

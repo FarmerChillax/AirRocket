@@ -7,8 +7,8 @@ import (
 	"log"
 	"os"
 
+	"github.com/FarmerChillax/AirRocket/api/rocket_client"
 	"github.com/FarmerChillax/AirRocket/pkg"
-	"github.com/FarmerChillax/AirRocket/proto/rocket_client"
 )
 
 type AirRocketService struct{}
