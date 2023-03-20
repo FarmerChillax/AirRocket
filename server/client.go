@@ -3,7 +3,7 @@ package server
 import (
 	"context"
 
-	"github.com/FarmerChillax/AirRocket/proto/rocket_server"
+	"github.com/FarmerChillax/AirRocket/api/rocket_server"
 	"google.golang.org/grpc"
 )
 

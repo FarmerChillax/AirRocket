@@ -6,7 +6,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/FarmerChillax/AirRocket/proto/rocket_server"
+	"github.com/FarmerChillax/AirRocket/api/rocket_server"
 )
 
 type Entry struct {

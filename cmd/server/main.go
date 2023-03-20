@@ -4,7 +4,7 @@ import (
 	"log"
 	"net"
 
-	"github.com/FarmerChillax/AirRocket/proto/rocket_server"
+	"github.com/FarmerChillax/AirRocket/api/rocket_server"
 	"github.com/FarmerChillax/AirRocket/server"
 	"google.golang.org/grpc"
 )

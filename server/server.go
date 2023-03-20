@@ -5,13 +5,15 @@ import (
 	"fmt"
 	"unsafe"
 
+	"github.com/FarmerChillax/AirRocket/api/rocket_server"
 	"github.com/FarmerChillax/AirRocket/pkg"
-	"github.com/FarmerChillax/AirRocket/proto/rocket_server"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
 
-type AirRocketServer struct{}
+type AirRocketServer struct {
+	rocket_server.UnimplementedAirRocketServerServer
+}
 
 func NewAirRocketServer() *AirRocketServer {
 	return &AirRocketServer{}
