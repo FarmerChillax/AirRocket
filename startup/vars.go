@@ -10,7 +10,7 @@ import (
 // SetupVars 加载变量
 func SetupVars() error {
 	// 初始化缓存
-	cache := cache.New(time.Duration(vars.AppSettings.DurationTime), 10*time.Minute)
+	cache := cache.New(time.Duration(vars.AppSettings.DurationTime)*time.Second, 10*time.Minute)
 	arc := vars.AirRocketCache{Cache: cache}
 	vars.Cache = &arc
 
