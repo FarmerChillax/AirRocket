@@ -14,7 +14,6 @@ import (
 type AirRocketService struct{}
 
 func NewAirRocketService() *AirRocketService {
-
 	return &AirRocketService{}
 }
 
