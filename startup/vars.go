@@ -16,3 +16,9 @@ func SetupVars() error {
 
 	return nil
 }
+
+// 加载客户端 server 的变量
+func SetupNodeServerVars() error {
+
+	return nil
+}

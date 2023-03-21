@@ -10,3 +10,10 @@ type AppSetting struct {
 }
 
 var AppSettings = &AppSetting{}
+
+type ClientServerSetting struct {
+	Address  string
+	RootPath string
+}
+
+var ServerSettings = &ClientServerSetting{}

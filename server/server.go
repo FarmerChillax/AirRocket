@@ -2,7 +2,6 @@ package server
 
 import (
 	"context"
-	"fmt"
 
 	"github.com/FarmerChillax/AirRocket/api/rocket_server"
 	"github.com/FarmerChillax/AirRocket/pkg"
@@ -26,10 +25,7 @@ func (ars *AirRocketServer) GenerateAccessCode(ctx context.Context, in *rocket_s
 			break
 		}
 	}
-	// vars.Cache.Set(accessCode, in, cache.DefaultExpiration)
 	vars.Cache.SetDefault(accessCode, in)
-	data, exist := vars.Cache.Get(accessCode)
-	fmt.Println(accessCode, data, exist)
 	return &rocket_server.AccessCode{Value: accessCode}, nil
 }
 

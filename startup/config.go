@@ -12,3 +12,12 @@ func LoadConfig() error {
 
 	return nil
 }
+
+func LoadNodeServerConfig() error {
+	settings := vars.ClientServerSetting{
+		Address:  "127.0.0.1:6000",
+		RootPath: "./",
+	}
+	vars.ServerSettings = &settings
+	return nil
+}

@@ -9,7 +9,7 @@ import (
 	"google.golang.org/grpc"
 )
 
-func StartUp() error {
+func AirRocketCenterServerStartUp() error {
 	// 加载配置项
 	err := LoadConfig()
 	if err != nil {
@@ -28,7 +28,7 @@ func StartUp() error {
 	}
 	grpcServer := grpc.NewServer()
 
-	if err := RegisterGRPCServer(grpcServer); err != nil {
+	if err := RegisterCenterServer(grpcServer); err != nil {
 		log.Printf("StartUp.RegisterGRPCServer err: %v", err)
 		return err
 	}

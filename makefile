@@ -20,6 +20,7 @@ endif
 api:
 	go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
 	protoc --proto_path=./api \
+			--go-grpc_opt=require_unimplemented_servers=false \
  	       --go_out=paths=source_relative:./api \
  	       --go-http_out=paths=source_relative:./api \
  	       --go-grpc_out=paths=source_relative:./api \

@@ -11,7 +11,8 @@ import (
 	"github.com/FarmerChillax/AirRocket/pkg"
 )
 
-type AirRocketService struct{}
+type AirRocketService struct {
+}
 
 func NewAirRocketService() *AirRocketService {
 	return &AirRocketService{}
