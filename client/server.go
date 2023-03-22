@@ -18,7 +18,7 @@ func NewAirRocketService() *AirRocketService {
 	return &AirRocketService{}
 }
 
-func (arc *AirRocketService) Transfer(in *rocket_client.TransferRequest, out rocket_client.AirRocketClient_TransferServer) error {
+func (arc *AirRocketService) Transfer(in *rocket_client.TransferRequest, out rocket_client.AirRocketNodeServer_TransferServer) error {
 	fmt.Println(in.URI)
 	// 判断文件是否存在
 	fmt.Printf("CheckFileExist result: %v\n", pkg.CheckFileExist(in.URI))

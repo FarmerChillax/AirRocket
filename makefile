@@ -19,6 +19,7 @@ endif
 # generate api proto
 api:
 	go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+	rm -rf ./api/**/*.go
 	protoc --proto_path=./api \
 			--go-grpc_opt=require_unimplemented_servers=false \
  	       --go_out=paths=source_relative:./api \
@@ -27,3 +28,12 @@ api:
 	       --openapi_out=fq_schema_naming=true,default_response=false:. \
 	       $(API_PROTO_FILES)
 
+.PHONY: client
+# generate api proto
+client:
+	go run ./cmd/client
+
+.PHONY: server
+# generate api proto
+server:
+	go run ./cmd/server

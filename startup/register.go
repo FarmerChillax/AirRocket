@@ -16,6 +16,6 @@ func RegisterCenterServer(grpcServer *grpc.Server) error {
 
 // RegisterNodeServer 此处注册客户端节点的 grpc Server
 func RegisterNodeServer(grpcServer *grpc.Server) error {
-	rocket_client.RegisterAirRocketClientServer(grpcServer, client.NewAirRocketService())
+	rocket_client.RegisterAirRocketNodeServerServer(grpcServer, client.NewAirRocketService())
 	return nil
 }

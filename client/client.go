@@ -30,7 +30,7 @@ func (arc *AirRocketClient) Download(ctx context.Context, src, dst string) error
 	}
 	defer conn.Close()
 
-	arcc := rocket_client.NewAirRocketClientClient(conn)
+	arcc := rocket_client.NewAirRocketNodeServerClient(conn)
 	airRocketClient, err := arcc.Transfer(ctx, &rocket_client.TransferRequest{URI: src})
 	if err != nil {
 		return err
@@ -68,7 +68,7 @@ func GetFile(ctx context.Context, address, URI string) error {
 	}
 	defer conn.Close()
 	// grpc.NewClientStream()
-	arcc := rocket_client.NewAirRocketClientClient(conn)
+	arcc := rocket_client.NewAirRocketNodeServerClient(conn)
 	arc, err := arcc.Transfer(ctx, &rocket_client.TransferRequest{
 		URI: URI,
 	})

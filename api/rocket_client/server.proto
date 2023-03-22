@@ -5,7 +5,7 @@ package rocket_client;
 option go_package = "./rocket_client";
 
 
-service AirRocketClient {
+service AirRocketNodeServer {
     rpc Transfer (TransferRequest) returns (stream TransferResponse);
 }
 

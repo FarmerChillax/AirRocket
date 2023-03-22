@@ -17,3 +17,5 @@ openapi.yaml
 ./api/**/*.pb.go
 api/**/*.pb.go
 .vscode/launch.json
+
+.vscode
